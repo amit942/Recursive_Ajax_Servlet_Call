@@ -1,95 +1,8 @@
-<!-- 
-<html>
-<head></head>
-<body>
-Hello!
-
-<form  name = "form" method="get" action="helloServ" onclick="loadXMLDoc()" >
-
-<input type="submit" value="SUBMIT" name="s"></input>
-
-</form>
-
-</body>
-</html>
--->
-
 <!DOCTYPE html>
 <html>
 <head>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
-/*
- * 
- //jQUERY sa try..
- $(document).ready(function(){
-	  $("button").click(function(){
-	    $("#div1").load("demo_test.txt",function(responseTxt,statusTxt,xhr){
-	      alert(responseTxt);
-	      if(statusTxt=="error")
-	        alert("Error: "+xhr.status+": "+xhr.statusText);
-	    });
-	  });
-	});
-	
-	
-	//ajax sa old method sa try..
-	...
-	
-
-
-// callback func se..
-function loadXMLDoc(url,cfunc)
-{
-if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
-  }
-  
-xmlhttp.onreadystatechange=cfunc;
-xmlhttp.open("GET",url,true);
-xmlhttp.send();
-}
-function myFunction()
-{
-	loadXMLDoc("helloServ",function()
-	  {
-	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-	    {
-	    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
-	    }
-	  });
-}
-
-
-
-$(document).ready(function(){
-	$mojb = new Object();
-	$mobj.f = 1;
-	$mobj.l = 2;
-	$mobj.m = 3;
-	$mobj.t = 4;
-	  $("button").click(function(){
-	    $("#myDiv").load("helloServ",function(responseTxt,statusTxt,xhr){
-	      document.getElementById("myDiv").innerHTML = responseTxt;
-	      if(statusTxt=="error")
-	        alert("Error: "+xhr.status+": "+xhr.statusText);
-	    });
-	  });
-	});
-//$.param(mobj)
-*/
-
-
-
-
-
-
-</script>
-<script>
-
-	
-
 function adjax(){
 	
 	var a;
@@ -112,7 +25,7 @@ function adjax(){
 		dataType: "text",
 		
 		success: function(){
-				
+				// inside this success fun we can define our unique obj recursive call to make recursive call to server;
 			$( "#but" ).load( "helloServ #myDiv" );
 			$( "<h1/>" ).text( text.title ).appendTo( "body" );
 	        $( "<div class=\'content\'/>").html( text.html ).appendTo( "body" );
@@ -131,10 +44,7 @@ function adjax(){
 		
 	});
 	
-	//$.get( "helloServ?", {s: "ad"}, function( resp ) { $( "#count" ).load( "helloServ #myDiv" );});
-	//$.get( "helloServ?s=", {s: "ad"}, function( resp ) { $( "#count" ).load( "helloServ #myDiv" );});
-	//$.get( "helloServ?s=1", {s: "ad"}, function( resp ) { $( "#count" ).load( "helloServ #myDiv" );});
-	
+	// This make a unique obj call to server with s="ad"; Gets a response in #myDiv div of html;
 	for(var n=0;n<10;n++)
 		{
 			$.get( "helloServ?s="+n, {s: "ad"}, function( resp ) { $( "#count" ).load( "helloServ #myDiv" );});
@@ -144,7 +54,6 @@ function adjax(){
 	
 	var xmlhttp;
 	if (window.XMLHttpRequest)
-	  {// code for IE7+, Firefox, Chrome, Opera, Safari
 	  xmlhttp=new XMLHttpRequest();
 	  }
 	xmlhttp.onreadystatechange=function()
@@ -160,13 +69,12 @@ function adjax(){
 
 
 
-//pehle wala method..
+//Normal Query to see one query per request;
 
 function loadXMLDoc(getdata)
 {
 var xmlhttp;
 if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
   xmlhttp=new XMLHttpRequest();
   }
 xmlhttp.onreadystatechange=function()
