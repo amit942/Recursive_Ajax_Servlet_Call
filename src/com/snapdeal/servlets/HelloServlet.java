@@ -38,7 +38,7 @@ resp.setContentType("text/html; CHARSET=UTF-8");
 		
 		try {
 		       Class.forName(driver).newInstance();
-				conn = DriverManager.getConnection(dbURL,"root", "amit");
+				conn = DriverManager.getConnection(dbURL,"Username or root", "Password");
 				statemen = conn.createStatement();
 				rs = statemen.executeQuery("SELECT * FROM counter");
 		     } catch (Exception e) {
@@ -59,7 +59,7 @@ resp.setContentType("text/html; CHARSET=UTF-8");
 			a=rs.getInt("count");
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
@@ -68,7 +68,7 @@ resp.setContentType("text/html; CHARSET=UTF-8");
 		try {
 			statemen.executeUpdate("update counter set count=count+1;");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
@@ -84,7 +84,7 @@ resp.setContentType("text/html; CHARSET=UTF-8");
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		super.doPost(req, resp);
 		
 		resp.setContentType("text/html; CHARSET=UTF-8");
@@ -118,7 +118,7 @@ resp.setContentType("text/html; CHARSET=UTF-8");
 				// printr.println(" the set is null ");
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
@@ -127,7 +127,7 @@ resp.setContentType("text/html; CHARSET=UTF-8");
 		try {
 			statemen.executeUpdate("update counter set count=count+1 where count=a");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
