@@ -19,7 +19,7 @@ import com.mysql.jdbc.Driver;
 
 public class HelloServlet extends HttpServlet {
 	
-	final static String dbURL = "jdbc:mysql://localhost:3306/serverletcounter";
+	final static String dbURL = "jdbc:mysql://localhost:3306/DBNAME";
     final static String driver = "com.mysql.jdbc.Driver";
 	Connection conn = null;
 	Statement statemen = null;
